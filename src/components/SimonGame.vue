@@ -48,7 +48,10 @@ export default {
       difficulties: [1500, 1000, 400],
       score: 0,
       result: false,
-      audio: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
+      audio1: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
+      audio2: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
+      audio3: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
+      audio4: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
     };
   },
 
@@ -80,7 +83,24 @@ export default {
 
     pressingColors(color) {
       this.pressedColors.push(color)
-      this.audio.play()
+
+      switch (this.colors[color]) {
+        case("green"):
+          this.audio1.play()
+          break
+
+        case ("red"):
+          this.audio2.play()
+          break
+
+        case ("yellow"):
+          this.audio3.play()
+          break
+
+        case ("blue"):
+          this.audio4.play()
+          break
+      }
 
       if ((this.pressedColors[this.pressedColors.length - 1] == this.subsequence[this.pressedColors.length - 1]) && (this.pressedColors.length == this.subsequence.length)) {
         this.pressedColors = []
