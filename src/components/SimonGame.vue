@@ -48,6 +48,7 @@ export default {
       difficulties: [1500, 1000, 400],
       score: 0,
       result: false,
+      audio: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
     };
   },
 
@@ -79,6 +80,7 @@ export default {
 
     pressingColors(color) {
       this.pressedColors.push(color)
+      this.audio.play()
 
       if ((this.pressedColors[this.pressedColors.length - 1] == this.subsequence[this.pressedColors.length - 1]) && (this.pressedColors.length == this.subsequence.length)) {
         this.pressedColors = []
